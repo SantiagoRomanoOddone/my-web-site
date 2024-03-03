@@ -114,10 +114,10 @@ with st.container():
     **Location:** Buenos Aires, Argentina
     
     **Profiles:**
-    - [Kaggle](www.kaggle.com/santiagoromanooddone)
-    - [LinkedIn](linkedin.com/in/santiagoromanooddone)
-    - [GitHub](github.com/SantiagoRomanoOddone)
-    - [Instagram](instagram.com/santirom15)
+    - [Kaggle](https://kaggle.com/santiagoromanooddone)
+    - [LinkedIn](https://linkedin.com/in/santiagoromanooddone)
+    - [GitHub](https://github.com/SantiagoRomanoOddone)
+    - [Instagram](https://instagram.com/santirom15)
     """)
     
     # Work Experience section
@@ -192,16 +192,19 @@ with st.container():
     
     # Languages section
     st.markdown("---")
-    st.header("Languages")
-    st.write("- Spanish")
-    st.write("- English")
-    
-    # Interests section
-    st.markdown("---")
-    st.header("Interests")
-    st.write("- Artificial Intelligence")
-    st.write("- Business Analytics")
+    right_column, left_column = st.columns((1, 2))
+    with right_column:    
+        st.header("Languages")
+        # Define language proficiency levels
+        language_proficiency = {
+         "Spanish": 1.0,  # Example proficiency levels, you can adjust these values
+        "English": 0.8   # Example proficiency levels, you can adjust these values
+         }
 
+        # Display language proficiency bars
+        for language, proficiency in language_proficiency.items():
+            st.write(language)
+            st.progress(proficiency)
 
 # # ---- CONTACT ----
 with st.container():
