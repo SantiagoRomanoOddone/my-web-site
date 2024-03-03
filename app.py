@@ -29,7 +29,7 @@ me_image = Image.open(me_path)
 #with st.container():
 st.set_page_config(page_title="My Webpage", page_icon=":tada:", layout="wide")
 
-
+st.write("[Jump to CV](#cv-section)")
 local_css("style/style.css")
 
 # Convert the image to base64
@@ -103,6 +103,7 @@ with st.container():
 
 
 # CV section
+st.markdown('<a name="cv-section"></a>', unsafe_allow_html=True)
 with st.container():
     st.markdown("---")
     st.header("CV: Santiago Romano Oddone")
