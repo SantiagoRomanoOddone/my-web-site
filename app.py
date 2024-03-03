@@ -21,6 +21,8 @@ def local_css(file_name):
 lottie_coding = load_lottieurl("https://assets5.lottiefiles.com/packages/lf20_fcfjwiyb.json")
 sales_forcasting = Image.open("images/sales-forcasting.png")
 properati = Image.open("images/properati.png")
+utdt = Image.open("images/UTDT.png")
+utn = Image.open("images/UTN.png")
 me_path = "images/RomanoOddoneSantiago.png"
 me_image = Image.open(me_path)
 
@@ -42,9 +44,22 @@ with st.container():
     left_column, right_column = st.columns(2)
     #left_column, right_column = st.columns([2, 1]) 
     with left_column:
-        st.subheader("Hi, I am Santiago Romano Oddone :wave:")
-        st.title("A Machine Learning Engineer and Data Scientist From Argentina")
-        st.write("I am passionate about finding ways to use AI and Data Science to build solutions for industry and business challenges.")
+        st.title("Hi, I am Santiago Romano Oddone :wave:")
+        st.markdown("""
+        
+        I'm a Machine Learning Engineer with a solid background in industrial engineering, currently pursuing a Master's in Management and Analytics. I specialize in developing AI models to predict scenarios and uncover meaningful patterns in data. With a focus on applying advanced analytics, I am poised to contribute innovative solutions to real-world business challenges.
+        
+        **Contact:** santiagoromano15@gmail.com | +5493884840234
+        **Location:** Buenos Aires, Argentina
+        
+        **Profiles:**
+        - [Kaggle](https://kaggle.com/santiagoromanooddone)
+        - [LinkedIn](https://linkedin.com/in/santiagoromanooddone)
+        - [GitHub](https://github.com/SantiagoRomanoOddone)
+        - [Instagram](https://instagram.com/santirom15)
+        """)
+        #st.title("A Machine Learning Engineer and Data Scientist From Argentina")
+        
         #st.write("[Learn More >](https://github.com/SantiagoRomanoOddone)")
     with right_column:
         #st.image(me, width=300)
@@ -57,29 +72,30 @@ with st.container():
 with st.container():
     st.write("---")
     #left_column, right_column = st.columns([2, 1])
-    left_column, right_column = st.columns(2)
+    right_column, left_column = st.columns(2)
     with right_column:
         st.header("What I do")
         st.write("##")
-        st.write(
-        """
-        I am a Machine Learning Engineer with a solid background in industrial engineering, currently pursuing a Master's in Management and Analytics.
-        I specialize in developing AI models to predict scenarios and uncover meaningful patterns in data. With a focus on applying advanced analytics, I am poised to contribute innovative solutions to real-world business challenges.
-        """
-    )
+        st.write("I am passionate about finding ways to use AI and Data Science to build solutions for industry and business challenges.")
+        
+        # st.write(
+        # """
+        # I am a Machine Learning Engineer with a solid background in industrial engineering, currently pursuing a Master's in Management and Analytics.
+        # I specialize in developing AI models to predict scenarios and uncover meaningful patterns in data. With a focus on applying advanced analytics, I am poised to contribute innovative solutions to real-world business challenges.
+        # """
+    #)
         st.write("[Learn More >](https://github.com/SantiagoRomanoOddone)")
     with left_column:
          st_lottie(lottie_coding, height=300, key="coding")
 
 
 # ---- PROJECTS ----
+st.write("---")
+st.header("My Projects")
 with st.container():
-    st.write("---")
-    st.header("My Projects")
     st.write("##")
-    image_column, text_column = st.columns((1, 2))
-    with image_column:
-        st.image(sales_forcasting)
+    text_column, image_column  = st.columns(2)
+    #text_column, image_column = st.columns((1, 2))
     with text_column:
         st.subheader("sales forcasting challenge")
         st.write(
@@ -88,10 +104,12 @@ with st.container():
             """
         )
         st.markdown("[see the challenge..](https://github.com/SantiagoRomanoOddone/marketing-sales-analysis)")
-with st.container():
-    image_column, text_column = st.columns((1, 2))
     with image_column:
-        st.image(properati)
+        st.image(sales_forcasting.resize((300, 200)))
+        
+with st.container():
+    #text_column, image_column  = st.columns((1, 2))
+    text_column, image_column  = st.columns(2)
     with text_column:
         st.subheader("contact prediction challenge")
         st.write(
@@ -100,28 +118,12 @@ with st.container():
             """
         )
         st.markdown("[see the challenge...](https://github.com/SantiagoRomanoOddone/contact-prediction-challenge)")
-
+    with image_column:
+        st.image(properati.resize((300, 200)))
 
 # CV section
 st.markdown('<a name="cv-section"></a>', unsafe_allow_html=True)
 with st.container():
-    st.markdown("---")
-    st.header("CV: Santiago Romano Oddone")
-    st.markdown("""
-    ### Machine Learning Engineer / Data Scientist
-    
-    I'm a Machine Learning Engineer with a solid background in industrial engineering, currently pursuing a Master's in Management and Analytics. I specialize in developing AI models to predict scenarios and uncover meaningful patterns in data. With a focus on applying advanced analytics, I am poised to contribute innovative solutions to real-world business challenges.
-    
-    **Contact:** santiagoromano15@gmail.com | +5493884840234
-    **Location:** Buenos Aires, Argentina
-    
-    **Profiles:**
-    - [Kaggle](https://kaggle.com/santiagoromanooddone)
-    - [LinkedIn](https://linkedin.com/in/santiagoromanooddone)
-    - [GitHub](https://github.com/SantiagoRomanoOddone)
-    - [Instagram](https://instagram.com/santirom15)
-    """)
-    
     # Work Experience section
     st.markdown("---")
     st.header("Work Experience")
@@ -154,18 +156,28 @@ with st.container():
     - Applying continuous improvement techniques to production and logistics processes.
     """)
     
-    # Education section
     st.markdown("---")
     st.header("Education")
-    
-    st.subheader("Master in Management + Analytics")
-    st.write("Torcuato Di Tella University")
-    st.write("03/2023 - Present, Buenos Aires, Argentina")
-    
-    st.subheader("Industrial Engineering")
-    st.write("National Technological University")
-    st.write("03/2015 - 12/2020, Córdoba, Argentina")
-    st.write("GPA: 8.35/10")
+    with st.container():
+        #text_column, image_column = st.columns((1, 2))
+        text_column, image_column  = st.columns(2)
+        with text_column:
+            st.subheader("Master in Management + Analytics")
+            st.write("Torcuato Di Tella University")
+            st.write("03/2023 - Present, Buenos Aires, Argentina")
+        with image_column:
+            st.image(utdt.resize((300, 300)), width=300 )
+
+    with st.container():
+        #text_column, image_column = st.columns((1, 2))
+        text_column, image_column  = st.columns(2)
+        with text_column:
+            st.subheader("Industrial Engineering")
+            st.write("National Technological University")
+            st.write("03/2015 - 12/2020, Córdoba, Argentina")
+            st.write("GPA: 8.35/10")
+        with image_column:
+            st.image(utn.resize((300, 300)), width=300)
     
     # Programming Languages section
     st.markdown("---")
