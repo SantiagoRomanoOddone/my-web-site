@@ -2,6 +2,7 @@ import streamlit as st
 from streamlit_lottie import st_lottie
 from PIL import Image
 import requests
+import base64
 
 
 def load_lottieurl(url):
@@ -10,40 +11,54 @@ def load_lottieurl(url):
         return None
     return r.json()
 
-# # ---- LOAD ASSETS ----
-lottie_coding = load_lottieurl("https://assets5.lottiefiles.com/packages/lf20_fcfjwiyb.json")
-sales_forcasting = Image.open("images/sales-forcasting.png")
-properati = Image.open("images/properati.png")
-
-# Find more emojis here: https://www.webfx.com/tools/emoji-cheat-sheet/
-#with st.container():
-st.set_page_config(page_title="My Webpage", page_icon=":tada:", layout="wide")
-
-st.subheader("Hi, I am Santiago Romano Oddone :wave:")
-st.title("A Machine Learning Engineer and Data Scientist From Argentina")
-st.write(
-            "I am passionate about finding ways to use AI and Data Science to build solutions for industry and business challenges."
-        )
-st.write("[Learn More >](https://github.com/SantiagoRomanoOddone)")
-
-
-
 
 # Use local CSS
 def local_css(file_name):
     with open(file_name) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
+# # ---- LOAD ASSETS ----
+lottie_coding = load_lottieurl("https://assets5.lottiefiles.com/packages/lf20_fcfjwiyb.json")
+sales_forcasting = Image.open("images/sales-forcasting.png")
+properati = Image.open("images/properati.png")
+me_path = "images/RomanoOddoneSantiago.png"
+me_image = Image.open(me_path)
+
+
+# Find more emojis here: https://www.webfx.com/tools/emoji-cheat-sheet/
+#with st.container():
+st.set_page_config(page_title="My Webpage", page_icon=":tada:", layout="wide")
+
 
 local_css("style/style.css")
 
+# Convert the image to base64
+with open(me_path, "rb") as f:
+    image_base64 = base64.b64encode(f.read()).decode("utf-8")
 
+# Header section
+with st.container():
+    st.write("---")
+    left_column, right_column = st.columns(2)
+    #left_column, right_column = st.columns([2, 1]) 
+    with left_column:
+        st.subheader("Hi, I am Santiago Romano Oddone :wave:")
+        st.title("A Machine Learning Engineer and Data Scientist From Argentina")
+        st.write("I am passionate about finding ways to use AI and Data Science to build solutions for industry and business challenges.")
+        st.write("[Learn More >](https://github.com/SantiagoRomanoOddone)")
+    with right_column:
+        #st.image(me, width=300)
+        st.markdown(
+            f'<img src="data:image/png;base64,{image_base64}" style="width:300px;margin:auto;display:block;">',
+            unsafe_allow_html=True
+        )
 
 # # ---- WHAT I DO ----
 with st.container():
     st.write("---")
+    #left_column, right_column = st.columns([2, 1])
     left_column, right_column = st.columns(2)
-    with left_column:
+    with right_column:
         st.header("What I do")
         st.write("##")
         st.write(
@@ -52,8 +67,9 @@ with st.container():
         I specialize in developing AI models to predict scenarios and uncover meaningful patterns in data. With a focus on applying advanced analytics, I am poised to contribute innovative solutions to real-world business challenges.
         """
     )
-    with right_column:
+    with left_column:
          st_lottie(lottie_coding, height=300, key="coding")
+
 
 # ---- PROJECTS ----
 with st.container():
@@ -193,7 +209,7 @@ with st.container():
     st.header("Get In Touch With Me!")
     st.write("##")
 
-    # Documention: https://formsubmit.co/ !!! CHANGE EMAIL ADDRESS !!!
+    # Documention: https://formsubmit.co/ !
     contact_form = """
     <form action="https://formsubmit.co/santiagoromano15@gmail.com" method="POST">
         <input type="hidden" name="_captcha" value="false">
