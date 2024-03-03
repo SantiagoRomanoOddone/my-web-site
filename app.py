@@ -45,7 +45,7 @@ with st.container():
         st.subheader("Hi, I am Santiago Romano Oddone :wave:")
         st.title("A Machine Learning Engineer and Data Scientist From Argentina")
         st.write("I am passionate about finding ways to use AI and Data Science to build solutions for industry and business challenges.")
-        st.write("[Learn More >](https://github.com/SantiagoRomanoOddone)")
+        #st.write("[Learn More >](https://github.com/SantiagoRomanoOddone)")
     with right_column:
         #st.image(me, width=300)
         st.markdown(
@@ -67,6 +67,7 @@ with st.container():
         I specialize in developing AI models to predict scenarios and uncover meaningful patterns in data. With a focus on applying advanced analytics, I am poised to contribute innovative solutions to real-world business challenges.
         """
     )
+        st.write("[Learn More >](https://github.com/SantiagoRomanoOddone)")
     with left_column:
          st_lottie(lottie_coding, height=300, key="coding")
 
