@@ -5,6 +5,7 @@ import requests
 import base64
 
 
+
 def load_lottieurl(url):
     r = requests.get(url)
     if r.status_code != 200:
@@ -18,6 +19,8 @@ def local_css(file_name):
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 # # ---- LOAD ASSETS ----
+# Find more emojis here: https://www.webfx.com/tools/emoji-cheat-sheet/
+
 lottie_coding = load_lottieurl("https://assets5.lottiefiles.com/packages/lf20_fcfjwiyb.json")
 sales_forcasting = Image.open("images/sales-forcasting.png")
 properati = Image.open("images/properati.png")
@@ -25,109 +28,99 @@ utdt = Image.open("images/UTDT.png")
 utn = Image.open("images/UTN.png")
 me_path = "images/RomanoOddoneSantiago.png"
 me_image = Image.open(me_path)
-
-
-# Find more emojis here: https://www.webfx.com/tools/emoji-cheat-sheet/
-#with st.container():
-st.set_page_config(page_title="My Webpage", page_icon=":tada:", layout="wide")
-
-st.write("[Jump to CV](#cv-section)")
-local_css("style/style.css")
-
 # Convert the image to base64
 with open(me_path, "rb") as f:
     image_base64 = base64.b64encode(f.read()).decode("utf-8")
+local_css("style/style.css")
 
-# Header section
-with st.container():
-    st.write("---")
-    left_column, right_column = st.columns(2)
-    #left_column, right_column = st.columns([2, 1]) 
-    with left_column:
-        st.title("Hi, I am Santiago Romano Oddone :wave:")
-        st.markdown("""
-        
-        I'm a Machine Learning Engineer with a solid background in industrial engineering, currently pursuing a Master's in Management and Analytics. I specialize in developing AI models to predict scenarios and uncover meaningful patterns in data. With a focus on applying advanced analytics, I am poised to contribute innovative solutions to real-world business challenges.
-        
-        **Contact:** santiagoromano15@gmail.com | +5493884840234
-        **Location:** Buenos Aires, Argentina
-        
-        **Profiles:**
-        - [Kaggle](https://kaggle.com/santiagoromanooddone)
-        - [LinkedIn](https://linkedin.com/in/santiagoromanooddone)
-        - [GitHub](https://github.com/SantiagoRomanoOddone)
-        - [Instagram](https://instagram.com/santirom15)
-        """)
-        #st.title("A Machine Learning Engineer and Data Scientist From Argentina")
-        
-        #st.write("[Learn More >](https://github.com/SantiagoRomanoOddone)")
-    with right_column:
-        #st.image(me, width=300)
-        st.markdown(
-            f'<img src="data:image/png;base64,{image_base64}" style="width:300px;margin:auto;display:block;">',
-            unsafe_allow_html=True
-        )
 
-# # ---- WHAT I DO ----
-with st.container():
+
+def home():
+    st.title("Home")
+    st.write("Welcome to my homepage!")
+    with st.container():
+        st.write("---")
+        left_column, right_column = st.columns([3, 1])  # Adjust column widths
+        with left_column:
+            st.title("Hi, I am Santiago Romano Oddone :wave:")
+            st.subheader("About Me")  # Use subheader
+            st.markdown("""
+            I'm a Machine Learning Engineer with a solid background in industrial engineering, currently pursuing a Master's in Management and Analytics. I specialize in developing AI models to predict scenarios and uncover meaningful patterns in data. With a focus on applying advanced analytics, I am poised to contribute innovative solutions to real-world business challenges.
+            """)
+            st.subheader("Contact")  # Use subheader
+            st.markdown(
+            """
+            - Email: santiagoromano15@gmail.com
+            - Phone: +5493884840234
+            - Location: Buenos Aires, Argentina
+            """)
+            st.subheader("Profiles")  # Use subheader
+            st.markdown("""
+            - [Kaggle](https://kaggle.com/santiagoromanooddone)
+            - [LinkedIn](https://linkedin.com/in/santiagoromanooddone)
+            - [GitHub](https://github.com/SantiagoRomanoOddone)
+            - [Instagram](https://instagram.com/santirom15)
+            """)
+        with right_column:
+            st.markdown(
+                f'<img src="data:image/png;base64,{image_base64}" style="width:300px;margin:auto;display:block;">',
+                unsafe_allow_html=True
+            )
+
+    with st.container():
+        st.write("---")
+        left_column, right_column = st.columns([2, 1])  # Adjust column widths
+        with left_column:
+            st_lottie(lottie_coding, height=300, key="coding")
+        with right_column:
+            st.header("What I do")
+            st.write("I am passionate about finding ways to use AI and Data Science to build solutions for industry and business challenges.")
+            st.write("[Learn More >](https://github.com/SantiagoRomanoOddone)")
+
+def projects():
+    st.title("Projects")
+    st.write("Here are some of my projects.")
     st.write("---")
-    #left_column, right_column = st.columns([2, 1])
-    right_column, left_column = st.columns(2)
-    with right_column:
-        st.header("What I do")
+    # st.header("My Projects")
+    with st.container():
         st.write("##")
-        st.write("I am passionate about finding ways to use AI and Data Science to build solutions for industry and business challenges.")
+        text_column, image_column  = st.columns(2)
+        #text_column, image_column = st.columns((1, 2))
+        with text_column:
         
-        # st.write(
-        # """
-        # I am a Machine Learning Engineer with a solid background in industrial engineering, currently pursuing a Master's in Management and Analytics.
-        # I specialize in developing AI models to predict scenarios and uncover meaningful patterns in data. With a focus on applying advanced analytics, I am poised to contribute innovative solutions to real-world business challenges.
-        # """
-    #)
-        st.write("[Learn More >](https://github.com/SantiagoRomanoOddone)")
-    with left_column:
-         st_lottie(lottie_coding, height=300, key="coding")
+            st.subheader("Rossmann Store Sales")
+            st.write(
+                """
+                Rossmann operates over 3,000 drug stores in 7 European countries. Currently, Rossmann store managers are tasked with predicting their daily sales for up to six weeks in advance. Store sales are influenced by many factors, including promotions, competition, school and state holidays, and more.
 
-
-# ---- PROJECTS ----
-st.write("---")
-st.header("My Projects")
-with st.container():
-    st.write("##")
-    text_column, image_column  = st.columns(2)
-    #text_column, image_column = st.columns((1, 2))
-    with text_column:
-        st.subheader("sales forcasting challenge")
-        st.write(
-            """
-            complete
-            """
-        )
-        st.markdown("[see the challenge..](https://github.com/SantiagoRomanoOddone/marketing-sales-analysis)")
-    with image_column:
-        st.image(sales_forcasting.resize((300, 200)))
+                In this Kaggle competition, Rossmann is challenging you to predict 6 weeks of daily sales for 1,115 stores located across Germany. Reliable sales forecasts enable store managers to create effective staff schedules that increase productivity and motivation. 
+                """
+            )
+            st.markdown("[see the challenge..](https://github.com/SantiagoRomanoOddone/rossmann-store-sales)")
+        with image_column:
+            st.image(sales_forcasting.resize((300, 200)))
         
-with st.container():
-    #text_column, image_column  = st.columns((1, 2))
-    text_column, image_column  = st.columns(2)
-    with text_column:
-        st.subheader("contact prediction challenge")
-        st.write(
-            """
-            complete
-            """
-        )
-        st.markdown("[see the challenge...](https://github.com/SantiagoRomanoOddone/contact-prediction-challenge)")
-    with image_column:
-        st.image(properati.resize((300, 200)))
-
-# CV section
-st.markdown('<a name="cv-section"></a>', unsafe_allow_html=True)
-with st.container():
-    # Work Experience section
-    st.markdown("---")
-    st.header("Work Experience")
+    with st.container():
+        #text_column, image_column  = st.columns((1, 2))
+        text_column, image_column  = st.columns(2)
+        with text_column:
+            st.subheader("contact prediction challenge")
+            st.write(
+                """
+                I've participated in a competition hosted by Properatti, a prominent real estate portal across various countries. The challenge involved developing a predictive model to determine if property listings published during specific months in 2022 would receive a minimum of three contacts within the first 15 days of publication. 
+                
+                This project aims to enhance Properatti's services by providing valuable insights into listing performance, aiding in targeted marketing strategies, and facilitating improved communication with partner agencies.
+                """
+            )
+            st.markdown("[see the challenge...](https://github.com/SantiagoRomanoOddone/contact-prediction-challenge)")
+        with image_column:
+            st.image(properati.resize((300, 200)))
     
+def work_experience():
+    st.title("Work Experience")
+    st.write("Here is my work experience.")
+    st.write("---")
+
     # Accenture
     st.subheader("Machine Learning Engineer")
     st.write("Accenture Argentina")
@@ -156,8 +149,13 @@ with st.container():
     - Applying continuous improvement techniques to production and logistics processes.
     """)
     
-    st.markdown("---")
-    st.header("Education")
+    st.write("Here is my work experience.")
+
+def education():
+    st.title("Education")
+    st.write("Here is my educational background.")
+    st.write("---")
+    # st.header("Education")
     with st.container():
         #text_column, image_column = st.columns((1, 2))
         text_column, image_column  = st.columns(2)
@@ -178,56 +176,45 @@ with st.container():
             st.write("GPA: 8.35/10")
         with image_column:
             st.image(utn.resize((300, 300)), width=300)
-    
-    # Programming Languages section
-    st.markdown("---")
-    st.header("Programming Languages")
-    st.write("- Python")
-    st.write("- SQL")
-    st.write("- R")
-    st.write("- C#")
-    st.write("- GitHub")
-    
-    # Certificates section
-    st.markdown("---")
-    st.header("Certificates")
-    st.write("- Deep Learning Specialization (12/2023), Provider: Deeplearning.ai")
-    st.write("- AWS Certified Cloud Practitioner (11/2023), Provider: AWS")
-    st.write("- Modern Natural Language Processing in Python (01/2023), Provider: Udemy")
-    
-    # Professional Skills section
-    st.markdown("---")
-    st.header("Professional Skills")
-    st.write("- Problem-solving")
-    st.write("- Proactive")
-    st.write("- Analytical thinking")
-    st.write("- Continuous Learning")
-    st.write("- Effective communication")
-    
-    # Languages section
-    st.markdown("---")
-    right_column, left_column = st.columns((1, 2))
-    with right_column:    
-        st.header("Languages")
-        # Define language proficiency levels
-        language_proficiency = {
-         "Spanish": 1.0,  # Example proficiency levels, you can adjust these values
-        "English": 0.8   # Example proficiency levels, you can adjust these values
-         }
 
-        # Display language proficiency bars
-        for language, proficiency in language_proficiency.items():
-            st.write(language)
-            st.progress(proficiency)
+# def certificates():
+#     st.title("Certificates")
+#     st.write("Here are my certificates.")
+#     st.write("---")
+#     #st.header("Certificates")
+#     st.write("- Deep Learning Specialization (12/2023), Provider: Deeplearning.ai")
+#     st.write("- AWS Certified Cloud Practitioner (11/2023), Provider: AWS")
+#     st.write("- Modern Natural Language Processing in Python (01/2023), Provider: Udemy")
+
+# Add a navigation bar
+st.sidebar.title("Navigation")
+page = st.sidebar.radio("Go to", ["Home", "Projects", "Work Experience", "Education"])
+
+# Use a dictionary to map page names to functions
+pages = {
+    "Home": home,
+    "Projects": projects,
+    "Work Experience": work_experience,
+    "Education": education
+}
+
+# Call the appropriate function based on the user's selection
+pages[page]()
+
+
+# Add a footer
+st.markdown("---")
+st.markdown("Made with Streamlit by Santiago Romano Oddone")
+st.markdown("[LinkedIn](https://linkedin.com/in/santiagoromanooddone) | [GitHub](https://github.com/SantiagoRomanoOddone)")
 
 # # ---- CONTACT ----
-with st.container():
-    st.write("---")
-    st.header("Get In Touch With Me!")
-    st.write("##")
+
+st.write("---")
+st.header("Get In Touch With Me!")
+st.write("##")
 
     # Documention: https://formsubmit.co/ !
-    contact_form = """
+contact_form = """
     <form action="https://formsubmit.co/santiagoromano15@gmail.com" method="POST">
         <input type="hidden" name="_captcha" value="false">
         <input type="text" name="name" placeholder="Your name" required>
@@ -236,8 +223,8 @@ with st.container():
         <button type="submit">Send</button>
     </form>
     """
-    left_column, right_column = st.columns(2)
-    with left_column:
-        st.markdown(contact_form, unsafe_allow_html=True)
-    with right_column:
-        st.empty()
+left_column, right_column = st.columns(2)
+with left_column:
+    st.markdown(contact_form, unsafe_allow_html=True)
+with right_column:
+    st.empty()
