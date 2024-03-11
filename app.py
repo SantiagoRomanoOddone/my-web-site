@@ -187,15 +187,16 @@ def education():
 #     st.write("- Modern Natural Language Processing in Python (01/2023), Provider: Udemy")
 
 # Add a navigation bar
-st.sidebar.title("Navigation")
-page = st.sidebar.radio("Go to", ["Home", "Projects", "Work Experience", "Education"])
 
+
+st.sidebar.title("Navigation")
+page = st.sidebar.radio("Go to", ["Home",  "Work Experience", "Education", "Projects"])
 # Use a dictionary to map page names to functions
 pages = {
     "Home": home,
-    "Projects": projects,
     "Work Experience": work_experience,
-    "Education": education
+    "Education": education,
+    "Projects": projects
 }
 
 # Call the appropriate function based on the user's selection
