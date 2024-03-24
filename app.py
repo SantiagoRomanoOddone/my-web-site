@@ -116,9 +116,8 @@ def projects():
             st.subheader("Rossmann Store Sales")
             st.write(
                 """
-                Rossmann operates over 3,000 drug stores in 7 European countries. Currently, Rossmann store managers are tasked with predicting their daily sales for up to six weeks in advance. Store sales are influenced by many factors, including promotions, competition, school and state holidays, and more.
-
-                In this Kaggle competition, Rossmann is challenging you to predict 6 weeks of daily sales for 1,115 stores located across Germany. Reliable sales forecasts enable store managers to create effective staff schedules that increase productivity and motivation. 
+                Rossmann operates over 3,000 drug stores in 7 European countries.
+                This competition is about predicting 6 weeks of daily sales for 1,115 stores located across Germany. Reliable sales forecasts enable store managers to create effective staff schedules that increase productivity and motivation. 
                 """
             )
             st.markdown("[see the challenge..](https://github.com/SantiagoRomanoOddone/rossmann-store-sales)")
@@ -132,9 +131,7 @@ def projects():
             st.subheader("contact prediction challenge")
             st.write(
                 """
-                I've participated in a competition hosted by Properatti, a prominent real estate portal across various countries. The challenge involved developing a predictive model to determine if property listings published during specific months in 2022 would receive a minimum of three contacts within the first 15 days of publication. 
-                
-                This project aims to enhance Properatti's services by providing valuable insights into listing performance, aiding in targeted marketing strategies, and facilitating improved communication with partner agencies.
+                Properatti is a prominent real estate portal across various countries. The challenge involved developing a predictive model to determine if property listings published during specific months in 2022 would receive a minimum of three contacts within the first 15 days of publication. 
                 """
             )
             st.markdown("[see the challenge...](https://github.com/SantiagoRomanoOddone/contact-prediction-challenge)")
