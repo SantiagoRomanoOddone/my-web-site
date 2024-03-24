@@ -217,7 +217,7 @@ def education():
         text_column, image_column  = st.columns(2)
         with text_column:
             st.subheader("Industrial Engineering")
-            st.write("[National Technological University](https://www.frc.utn.edu.ar")
+            st.write("[National Technological University](https://www.frc.utn.edu.ar)")
             st.write("03/2015 - 12/2020, Córdoba, Argentina")
             st.write("GPA: 8.35/10")
         with image_column:
