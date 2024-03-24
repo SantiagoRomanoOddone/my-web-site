@@ -54,14 +54,16 @@ def home():
         footer()
 
 def introduction():
+
     st.title("Welcome to my homepage!")
+
     with st.container():
         st.write("---")
         left_column, right_column = st.columns([3, 1])  # Adjust column widths
         with left_column:
             st.title("Hi, I am Santiago Romano Oddone :wave:")
             st.markdown("""
-            I'm a Machine Learning Engineer with a solid background in industrial engineering, currently pursuing a Master's in Management and Analytics. I specialize in developing AI models to predict scenarios and uncover meaningful patterns in data. With a focus on applying advanced analytics, I am poised to contribute innovative solutions to real-world business challenges.
+            I'm a Machine Learning Engineer and Data Scientist. I specialize in developing artificial intelligence solutions to tackle real-world business challenges.
             """)
         with right_column:
             st.markdown(
@@ -70,7 +72,7 @@ def introduction():
             )
     with st.container():
         st.write("---")
-        left_column, right_column = st.columns([3, 1])  # Adjust column widths
+        left_column, right_column= st.columns(2)  # Adjust column widths
 
         with left_column:
             st.subheader("Contact")  # Use subheader
@@ -80,6 +82,7 @@ def introduction():
             - Phone: +5493884840234
             - Location: Buenos Aires, Argentina
             """)
+        
         with right_column:
             st.subheader("Profiles")  # Use subheader
             st.markdown("""
@@ -87,22 +90,22 @@ def introduction():
             - [GitHub](https://github.com/SantiagoRomanoOddone)
             - [Kaggle](https://kaggle.com/santiagoromanooddone)
             """)
+        
     
 
-    with st.container():
-        st.write("---")
-        left_column, right_column = st.columns([2, 1])  # Adjust column widths
-        with left_column:
-            st_lottie(lottie_coding, height=300, key="coding")
-        with right_column:
-            st.header("What I do")
-            st.write("I am passionate about finding ways to use AI and Data Science to build solutions for industry and business challenges.")
-            st.write("[Learn More >](https://github.com/SantiagoRomanoOddone)")
+    # with st.container():
+    #     st.write("---")
+    #     left_column, right_column = st.columns([2, 1])  # Adjust column widths
+    #     with left_column:
+    #         st_lottie(lottie_coding, height=300, key="coding")
+    #     with right_column:
+    #         st.header("What I do")
+    #         st.write("I am passionate about finding ways to use AI and Data Science to build solutions for industry and business challenges.")
+    #         st.write("[Learn More >](https://github.com/SantiagoRomanoOddone)")
 
 def projects():
     st.title("Projects")
     st.write("Here are some of my projects.")
-    st.write("---")
     # st.header("My Projects")
     with st.container():
         st.write("##")
@@ -226,8 +229,13 @@ def education():
 def footer():
     # Add a footer
     st.markdown("---")
-    st.markdown("Made with Streamlit by Santiago Romano Oddone")
-    st.markdown("[LinkedIn](https://linkedin.com/in/santiagoromanooddone) | [GitHub](https://github.com/SantiagoRomanoOddone)")
+    left_column, right_column = st.columns(2)
+    with left_column:
+        st.markdown("Made with Streamlit by Santiago Romano Oddone")
+        st.markdown("[LinkedIn](https://linkedin.com/in/santiagoromanooddone) | [GitHub](https://github.com/SantiagoRomanoOddone)")
+        st.empty()
+    with right_column:
+        st_lottie(lottie_coding, height=300, key="coding")
 
     # # ---- CONTACT ----
 
