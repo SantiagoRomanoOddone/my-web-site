@@ -36,25 +36,6 @@ with open(me_path, "rb") as f:
 local_css("style/style.css")
 
 
-
-# def home():
-    
-#     st.write("---")
-#     with st.container():
-#         introduction()
-#     st.write("---")
-#     with st.container():
-#         work_experience()
-#     st.write("---")
-#     with st.container():
-#         education()
-#     st.write("---")
-#     with st.container():
-#         projects()
-
-#     with st.container():
-#         footer()
-
 def home():
     st.sidebar.title("Navigation")
     page = st.sidebar.radio("Go to", ["Home",  "Work Experience", "Education", "Projects"])
@@ -80,49 +61,50 @@ def introduction():
     st.title("Welcome to my homepage!")
     st.markdown("<hr style='border:2px solid white'>", unsafe_allow_html=True)
     with st.container():
-
-        left_column, right_column = st.columns([3, 1])  # Adjust column widths
-        with left_column:
-            st.title("Hi, I am Santiago Romano Oddone :wave:")
-            st.markdown("""
-            I'm a Machine Learning Engineer and Data Scientist. I specialize in developing artificial intelligence solutions to tackle real-world business challenges.
-            """)
-        with right_column:
-            st.markdown(
-                f'<img src="data:image/png;base64,{image_base64}" style="width:300px;margin:auto;display:block;">',
-                unsafe_allow_html=True
-            )
+        st.title("Hi, I am Santiago Romano Oddone :wave:")
+        st.markdown("""
+                I'm a Machine Learning Engineer and Data Scientist. I specialize in developing artificial intelligence solutions to tackle real-world business challenges.
+                """)
     with st.container():
-        left_column, right_column= st.columns(2)  # Adjust column widths
+        st.markdown(
+                    f'<img src="data:image/png;base64,{image_base64}" style="width:300px;margin:auto;display:block;">',
+                    unsafe_allow_html=True
+                )
+    with st.container():
+        left_column, middle_column ,right_column= st.columns([2,2,2])  # Adjust column widths
 
         with left_column:
-            st.subheader("Contact")  # Use subheader
-            st.markdown(
-            """
+            st.markdown("<h2 style='text-align: left'>Contact</h2>", unsafe_allow_html=True)
+            st.markdown("""
+            <div style="text-align: left"> 
+                        
             - Email: santiagoromano15@gmail.com
             - Phone: +5493884840234
             - Location: Buenos Aires, Argentina
-            """)
-        
+                        
+            </div>
+            """, unsafe_allow_html=True)
         with right_column:
-            st.subheader("Profiles")  # Use subheader
+            #st.subheader("Profiles")  # Use subheader
+            st.markdown("<h2 style='text-align: left'>Profiles</h2>", unsafe_allow_html=True)
             st.markdown("""
+            <div style="text-align: left"> 
+
             - [LinkedIn](https://linkedin.com/in/santiagoromanooddone)
             - [GitHub](https://github.com/SantiagoRomanoOddone)
             - [Kaggle](https://kaggle.com/santiagoromanooddone)
-            """)
+
+            </div>
+            """, unsafe_allow_html=True)
+        # with right_column:
+        #     st.subheader("Profiles")  # Use subheader
+        #     st.markdown("""
+        #     - [LinkedIn](https://linkedin.com/in/santiagoromanooddone)
+        #     - [GitHub](https://github.com/SantiagoRomanoOddone)
+        #     - [Kaggle](https://kaggle.com/santiagoromanooddone)
+        #     """)
     st.markdown("<hr style='border:2px solid white'>", unsafe_allow_html=True)
     
-
-    # with st.container():
-    #     st.write("---")
-    #     left_column, right_column = st.columns([2, 1])  # Adjust column widths
-    #     with left_column:
-    #         st_lottie(lottie_coding, height=300, key="coding")
-    #     with right_column:
-    #         st.header("What I do")
-    #         st.write("I am passionate about finding ways to use AI and Data Science to build solutions for industry and business challenges.")
-    #         st.write("[Learn More >](https://github.com/SantiagoRomanoOddone)")
 
 def projects():
     st.title("Projects")
