@@ -156,7 +156,7 @@ def work_experience():
             st.write("[Scanntech Uruguay](https://scanntech.com)")
             st.write("02/2024 - Present, Buenos Aires, Argentina")
             st.write("""
-            - Developing and implementing advanced forecasting models in production environments for large corporations to accurately predict product demand throughout the supply chain, optimizing inventory management to prevent shortages and surplus goods.
+            - Development and implementation of advanced forecasting models in production environments for large corporations, ensuring accurate prediction of product demand across the supply chain while optimizing inventory management to prevent shortages and surplus goods.
             """)
         with image_column:
             st.image(scanntech.resize((300, 300)))
@@ -173,17 +173,17 @@ def work_experience():
             st.write("[Accenture Argentina](https://www.accenture.com/ar-es)")
             st.write("08/2023 - Present, Buenos Aires, Argentina")
             st.write("""
-            - Managing the implementation and optimization of worldwide demand and supply prediction models in production environments.
-            - Collaborating effectively with data science teams to analyze monthly results and enhance the predictive capabilities of the models.
-            - Building supervised and unsupervised Machine Learning models for client clustering and cluster prediction.
+            - Management of worldwide demand and supply prediction models in production environments, including data preprocessing, model training, and result analysis.
+            - Effective collaboration with data science teams to analyze monthly results and enhance the predictive capabilities of the models.
+            - Development of supervised and unsupervised Machine Learning models for client clustering and cluster prediction
             """)
             st.write("---")
             st.subheader("Application Developer")
             st.write("[Accenture Argentina](https://www.accenture.com/ar-es)")
             st.write("02/2022 - 07/2023, Buenos Aires, Argentina")
             st.write("""
-            - Developing and managing ETL solutions for importing/exporting, loading, and processing data.
-            - Developing and managing .NET CORE applications.
+            - Development of ETL solutions for importing/exporting, loading, and processing data.
+            - Development of .NET CORE applications.
             """)
         with image_column:
             st.image(accenture.resize((300, 200)))
@@ -200,9 +200,9 @@ def work_experience():
             st.write("[MuniraFoods](https://munirafoods.com)")
             st.write("03/2021 - 09/2021, Córdoba, Argentina")
             st.write("""
-            - Monitoring and analyzing operational processes by creating Key Performance Indicators (KPIs) for each product line.
-            - Identifying and monitoring operational and compliance risks.
-            - Applying continuous improvement techniques to production and logistics processes.
+            - Development of Key Performance Indicators (KPIs) for each product line to monitor and analyze operational processes.
+            - Identification and monitoring of operational and compliance risks.
+            - Application of continuous improvement techniques to enhance production and logistics processes.
             """)
         with image_column:
             st.image(munira.resize((300, 200)))
