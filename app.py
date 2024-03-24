@@ -37,28 +37,50 @@ local_css("style/style.css")
 
 
 
-def home():
-    with st.container():
-        introduction()
-    st.write("---")
-    with st.container():
-        work_experience()
-    st.write("---")
-    with st.container():
-        education()
-    st.write("---")
-    with st.container():
-        projects()
+# def home():
+    
+#     st.write("---")
+#     with st.container():
+#         introduction()
+#     st.write("---")
+#     with st.container():
+#         work_experience()
+#     st.write("---")
+#     with st.container():
+#         education()
+#     st.write("---")
+#     with st.container():
+#         projects()
 
-    with st.container():
+#     with st.container():
+#         footer()
+
+def home():
+    st.sidebar.title("Navigation")
+    page = st.sidebar.radio("Go to", ["Home",  "Work Experience", "Education", "Projects"])
+
+    if page == "Home":
+        introduction()
+        work_experience()
+        education()
+        projects()
+        footer_home()
+    elif page == "Work Experience":
+        work_experience()
+        footer()
+    elif page == "Education":
+        education()
+        footer()
+    elif page == "Projects":
+        projects()
         footer()
 
 def introduction():
 
     st.title("Welcome to my homepage!")
-
+    st.markdown("<hr style='border:2px solid white'>", unsafe_allow_html=True)
     with st.container():
-        st.write("---")
+
         left_column, right_column = st.columns([3, 1])  # Adjust column widths
         with left_column:
             st.title("Hi, I am Santiago Romano Oddone :wave:")
@@ -71,7 +93,6 @@ def introduction():
                 unsafe_allow_html=True
             )
     with st.container():
-        st.write("---")
         left_column, right_column= st.columns(2)  # Adjust column widths
 
         with left_column:
@@ -90,7 +111,7 @@ def introduction():
             - [GitHub](https://github.com/SantiagoRomanoOddone)
             - [Kaggle](https://kaggle.com/santiagoromanooddone)
             """)
-        
+    st.markdown("<hr style='border:2px solid white'>", unsafe_allow_html=True)
     
 
     # with st.container():
@@ -106,6 +127,7 @@ def introduction():
 def projects():
     st.title("Projects")
     st.write("Here are some of my projects.")
+    st.write("---")
     # st.header("My Projects")
     with st.container():
         st.write("##")
@@ -123,7 +145,7 @@ def projects():
             st.markdown("[see the challenge..](https://github.com/SantiagoRomanoOddone/rossmann-store-sales)")
         with image_column:
             st.image(sales_forcasting.resize((300, 200)))
-        
+    st.write("---")
     with st.container():
         #text_column, image_column  = st.columns((1, 2))
         text_column, image_column  = st.columns(2)
@@ -137,10 +159,11 @@ def projects():
             st.markdown("[see the challenge...](https://github.com/SantiagoRomanoOddone/contact-prediction-challenge)")
         with image_column:
             st.image(properati.resize((300, 200)))
+    st.markdown("<hr style='border:2px solid white'>", unsafe_allow_html=True)
     
 def work_experience():
     st.title("Work Experience")
-
+    st.write("---")
     # Scanntech
     with st.container():
         st.write("##")
@@ -201,9 +224,11 @@ def work_experience():
             """)
         with image_column:
             st.image(munira.resize((300, 200)))
+    st.markdown("<hr style='border:2px solid white'>", unsafe_allow_html=True)
 
 def education():
     st.title("Education")
+    st.write("---")
     with st.container():
         text_column, image_column  = st.columns(2)
         with text_column:
@@ -222,10 +247,10 @@ def education():
             st.write("GPA: 8.35/10")
         with image_column:
             st.image(utn.resize((300, 300)), width=300)
+    st.markdown("<hr style='border:2px solid white'>", unsafe_allow_html=True)
 
-def footer():
+def footer_home():
     # Add a footer
-    st.markdown("---")
     left_column, right_column = st.columns(2)
     with left_column:
         st.markdown("Made with Streamlit by Santiago Romano Oddone")
@@ -255,30 +280,46 @@ def footer():
         st.markdown(contact_form, unsafe_allow_html=True)
     with right_column:
         st.empty()
-# def certificates():
-#     st.title("Certificates")
-#     st.write("Here are my certificates.")
-#     st.write("---")
-#     #st.header("Certificates")
-#     st.write("- Deep Learning Specialization (12/2023), Provider: Deeplearning.ai")
-#     st.write("- AWS Certified Cloud Practitioner (11/2023), Provider: AWS")
-#     st.write("- Modern Natural Language Processing in Python (01/2023), Provider: Udemy")
+
+def footer():
+    # Add a footer
+    # # ---- CONTACT ----
+
+    st.header("Get In Touch With Me!")
+    st.write("##")
+
+        # Documention: https://formsubmit.co/ !
+    contact_form = """
+        <form action="https://formsubmit.co/santiagoromano15@gmail.com" method="POST">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="text" name="name" placeholder="Your name" required>
+            <input type="email" name="email" placeholder="Your email" required>
+            <textarea name="message" placeholder="Your message here" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+        """
+    left_column, right_column = st.columns(2)
+    with left_column:
+        st.markdown(contact_form, unsafe_allow_html=True)
+    with right_column:
+        st.empty()
 
 # Add a navigation bar
 
 
-# st.sidebar.title("Navigation")
-# page = st.sidebar.radio("Go to", ["Home",  "Work Experience", "Education", "Projects"])
-# # Use a dictionary to map page names to functions
-# pages = {
-#     "Home": introduction,
-#     "Work Experience": work_experience,
-#     "Education": education,
-#     "Projects": projects
-# }
+def navegation_bar():
+    st.sidebar.title("Navigation")
+    page = st.sidebar.radio("Go to", ["Home",  "Work Experience", "Education", "Projects"])
+    # Use a dictionary to map page names to functions
+    pages = {
+        "Home": introduction,
+        "Work Experience": work_experience,
+        "Education": education,
+        "Projects": projects
+    }
 
-# # Call the appropriate function based on the user's selection
-# pages[page]()
+    # Call the appropriate function based on the user's selection
+    pages[page]()
 
 if __name__ == "__main__":
     home()
