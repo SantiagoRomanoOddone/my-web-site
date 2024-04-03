@@ -37,24 +37,23 @@ local_css("style/style.css")
 
 
 def home():
-    st.sidebar.title("Navigation")
-    page = st.sidebar.radio("Go to", ["Home",  "Work Experience", "Education", "Projects"])
+    #st.sidebar.title("Navigation")
+    #page = st.sidebar.radio("Go to", ["Home",  "Work Experience", "Education"])
 
-    if page == "Home":
-        introduction()
-        work_experience()
-        education()
-        projects()
-        footer_home()
-    elif page == "Work Experience":
-        work_experience()
-        footer()
-    elif page == "Education":
-        education()
-        footer()
-    elif page == "Projects":
-        projects()
-        footer()
+    introduction()
+    work_experience()
+    education()
+        #projects()
+    footer_home()
+    # elif page == "Work Experience":
+    #     work_experience()
+    #     footer()
+    # elif page == "Education":
+    #     education()
+    #     footer()
+    # elif page == "Projects":
+    #     projects()
+    #     footer()
 
 def introduction():
 
@@ -71,7 +70,7 @@ def introduction():
                     unsafe_allow_html=True
                 )
     with st.container():
-        left_column, middle_column ,right_column= st.columns([2,2,2])  # Adjust column widths
+        left_column, middle_column ,right_column= st.columns([3,2,3])  # Adjust column widths
 
         with left_column:
             st.markdown("<h2 style='text-align: left'>Contact</h2>", unsafe_allow_html=True)
@@ -291,17 +290,17 @@ def footer():
 
 def navegation_bar():
     st.sidebar.title("Navigation")
-    page = st.sidebar.radio("Go to", ["Home",  "Work Experience", "Education", "Projects"])
+    page = st.sidebar.radio("Go to", ["Home",  "Work Experience", "Education"])
     # Use a dictionary to map page names to functions
     pages = {
         "Home": introduction,
         "Work Experience": work_experience,
-        "Education": education,
-        "Projects": projects
+        "Education": education
+        #"Projects": projects
     }
 
     # Call the appropriate function based on the user's selection
-    pages[page]()
+    #pages[page]()
 
 if __name__ == "__main__":
     home()
