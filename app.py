@@ -69,7 +69,7 @@ def introduction():
                     unsafe_allow_html=True
                 )
     with st.container():
-        left_column, middle_column ,right_column= st.columns([3,2,3])  # Adjust column widths
+        left_column, middle_column ,right_column= st.columns([4,3,2])  # Adjust column widths
 
         with left_column:
             st.markdown("<h2 style='text-align: left'>Contact</h2>", unsafe_allow_html=True)
