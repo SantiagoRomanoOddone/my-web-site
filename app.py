@@ -56,13 +56,12 @@ def home():
     #     footer()
 
 def introduction():
-
     st.title("Welcome to my homepage!")
     st.markdown("<hr style='border:2px solid white'>", unsafe_allow_html=True)
     with st.container():
         st.title("Hi, I am Santiago Romano Oddone :wave:")
         st.markdown("""
-                I'm a Machine Learning Engineer and Data Scientist. I specialize in developing artificial intelligence solutions to tackle real-world business challenges.
+                Machine Learning Engineer and Data Scientist specializing in the development of artificial intelligence solutions to address real-world business challenges.
                 """)
     with st.container():
         st.markdown(
