@@ -169,7 +169,7 @@ def work_experience():
         
             st.subheader("Machine Learning Engineer")
             st.write("[Accenture Argentina](https://www.accenture.com/ar-es)")
-            st.write("08/2023 - Present, Buenos Aires, Argentina")
+            st.write("07/2023 - 01/2024, Buenos Aires, Argentina")
             st.write("""
             - Management of worldwide demand and supply prediction models in production environments, including data preprocessing, model training, and result analysis.
             - Effective collaboration with data science teams to analyze monthly results and enhance the predictive capabilities of the models.
@@ -178,7 +178,7 @@ def work_experience():
             st.write("---")
             st.subheader("Application Developer")
             st.write("[Accenture Argentina](https://www.accenture.com/ar-es)")
-            st.write("02/2022 - 07/2023, Buenos Aires, Argentina")
+            st.write("02/2022 - 06/2023, Buenos Aires, Argentina")
             st.write("""
             - Development of ETL solutions for importing/exporting, loading, and processing data.
             - Development of .NET CORE applications.
