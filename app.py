@@ -61,7 +61,7 @@ def introduction():
     with st.container():
         st.title("Hi, I am Santiago Romano Oddone :wave:")
         st.markdown("""
-                Machine Learning Engineer and Data Scientist specializing in the development of artificial intelligence solutions to address real-world business challenges.
+                Machine Learning Engineer and Data Scientist specializing in the development of data science and artificial intelligence solutions for industry and business.
                 """)
     with st.container():
         st.markdown(
@@ -90,7 +90,6 @@ def introduction():
 
             - [LinkedIn](https://linkedin.com/in/santiagoromanooddone)
             - [GitHub](https://github.com/SantiagoRomanoOddone)
-            - [Kaggle](https://kaggle.com/santiagoromanooddone)
 
             </div>
             """, unsafe_allow_html=True)
@@ -171,9 +170,9 @@ def work_experience():
             st.write("[Accenture Argentina](https://www.accenture.com/ar-es)")
             st.write("07/2023 - 01/2024, Buenos Aires, Argentina")
             st.write("""
-            - Management of worldwide demand and supply prediction models in production environments, including data preprocessing, model training, and result analysis.
+            - Management of demand and supply prediction models in production environments, including data engineering, model training and optimization, and result analysis.
             - Effective collaboration with data science teams to analyze monthly results and enhance the predictive capabilities of the models.
-            - Development of supervised and unsupervised Machine Learning models for client clustering and cluster prediction
+            - Development of supervised and unsupervised Machine Learning models for client clustering and cluster prediction.
             """)
             st.write("---")
             st.subheader("Application Developer")
