@@ -42,6 +42,7 @@ def home():
     #page = st.sidebar.radio("Go to", ["Home",  "Work Experience", "Education"])
 
     introduction()
+    skill_tab()
     work_experience()
     education()
     # projects()
@@ -57,7 +58,7 @@ def home():
     #     footer()
 
 def introduction():
-    st.title("Welcome to my homepage!")
+    st.header("Welcome to my homepage!")
     st.markdown("<hr style='border:2px solid white'>", unsafe_allow_html=True)
     with st.container():
         st.title("Hi, I am Santiago Romano Oddone :wave:")
@@ -94,52 +95,29 @@ def introduction():
 
             </div>
             """, unsafe_allow_html=True)
-        # with right_column:
-        #     st.subheader("Profiles")  # Use subheader
-        #     st.markdown("""
-        #     - [LinkedIn](https://linkedin.com/in/santiagoromanooddone)
-        #     - [GitHub](https://github.com/SantiagoRomanoOddone)
-        #     - [Kaggle](https://kaggle.com/santiagoromanooddone)
-        #     """)
-    st.markdown("<hr style='border:2px solid white'>", unsafe_allow_html=True)
+
+    # st.markdown("<hr style='border:2px solid white'>", unsafe_allow_html=True)
     
 
-# def projects():
-#     st.title("Projects")
-#     st.write("Here are some of my projects.")
-#     st.write("---")
-#     # st.header("My Projects")
-#     with st.container():
-#         st.write("##")
-#         text_column, image_column  = st.columns(2)
-#         #text_column, image_column = st.columns((1, 2))
-#         with text_column:
-        
-#             st.subheader("Rossmann Store Sales")
-#             st.write(
-#                 """
-#                 Rossmann operates over 3,000 drug stores in 7 European countries.
-#                 This competition is about predicting 6 weeks of daily sales for 1,115 stores located across Germany. Reliable sales forecasts enable store managers to create effective staff schedules that increase productivity and motivation. 
-#                 """
-#             )
-#             st.markdown("[see the challenge..](https://github.com/SantiagoRomanoOddone/rossmann-store-sales)")
-#         with image_column:
-#             st.image(sales_forcasting.resize((300, 200)))
-#     st.write("---")
-#     with st.container():
-#         #text_column, image_column  = st.columns((1, 2))
-#         text_column, image_column  = st.columns(2)
-#         with text_column:
-#             st.subheader("contact prediction challenge")
-#             st.write(
-#                 """
-#                 Properatti is a prominent real estate portal across various countries. The challenge involved developing a predictive model to determine if property listings published during specific months in 2022 would receive a minimum of three contacts within the first 15 days of publication. 
-#                 """
-#             )
-#             st.markdown("[see the challenge...](https://github.com/SantiagoRomanoOddone/contact-prediction-challenge)")
-#         with image_column:
-#             st.image(properati.resize((300, 200)))
-#     st.markdown("<hr style='border:2px solid white'>", unsafe_allow_html=True)
+
+def skill_tab():
+    st.subheader(":blue[My Core Tools & Technologies] ⚒️",divider='rainbow') #,divider='rainbow'
+    skill_col_size = 5
+    info = {
+            'skills':['Python','R','PySpark','.NET Core','SQL','AWS','Github','Gitlab','Pytorch','Scikit-Learn'],
+            }
+    rows,cols = len(info['skills'])//skill_col_size, skill_col_size
+    skills = iter(info['skills'])
+    if len(info['skills'])%skill_col_size!=0:
+        rows+=1
+    for x in range(rows):
+        columns = st.columns(skill_col_size)
+        for index_ in range(skill_col_size):
+            try:
+                columns[index_].button(next(skills))
+            except:
+                break
+    st.markdown("<hr style='border:2px solid white'>", unsafe_allow_html=True)
 
 def projects():
     st.title("Projects")
@@ -179,17 +157,15 @@ def projects():
             st.markdown(f"[See the project]({project['link']})")
 
     st.markdown("<hr style='border:2px solid white'>", unsafe_allow_html=True)
-
-    
 def work_experience():
     st.title("Work Experience")
     st.write("---")
+
     # Scanntech
     with st.container():
         st.write("##")
-        text_column, image_column  = st.columns(2)
-        #text_column, image_column = st.columns((1, 2))
-        with text_column:  
+        text_column, image_column = st.columns([2, 1])
+        with text_column:
             st.subheader("Data Scientist")
             st.write("[Scanntech Uruguay](https://scanntech.com)")
             st.write("02/2024 - Present, Buenos Aires, Argentina")
@@ -202,13 +178,12 @@ def work_experience():
             st.image(scanntech.resize((300, 300)))
 
     st.write("---")
+
     # Accenture
     with st.container():
         st.write("##")
-        text_column, image_column  = st.columns(2)
-        #text_column, image_column = st.columns((1, 2))
+        text_column, image_column = st.columns([2, 1])
         with text_column:
-        
             st.subheader("Machine Learning Engineer")
             st.write("[Accenture Argentina](https://www.accenture.com/ar-es)")
             st.write("07/2023 - 01/2024, Buenos Aires, Argentina")
@@ -227,15 +202,14 @@ def work_experience():
             """)
         with image_column:
             st.image(accenture.resize((300, 200)))
-    
+
     st.write("---")
+
     # MuniraFoods
     with st.container():
         st.write("##")
-        text_column, image_column  = st.columns(2)
-        #text_column, image_column = st.columns((1, 2))
+        text_column, image_column = st.columns([2, 1])
         with text_column:
-        
             st.subheader("Business Analyst")
             st.write("[MuniraFoods](https://munirafoods.com)")
             st.write("03/2021 - 09/2021, Córdoba, Argentina")
@@ -246,6 +220,7 @@ def work_experience():
             """)
         with image_column:
             st.image(munira.resize((300, 200)))
+
     st.markdown("<hr style='border:2px solid white'>", unsafe_allow_html=True)
 
 def education():
