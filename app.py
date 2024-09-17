@@ -4,7 +4,8 @@ from PIL import Image
 import requests
 import base64
 
-
+st.set_page_config(page_title="Main Page", page_icon="🏠", layout="wide",initial_sidebar_state="collapsed") 
+margin_r,body,margin_l = st.columns([0.4, 3, 0.4])
 
 def load_lottieurl(url):
     r = requests.get(url)
@@ -43,7 +44,7 @@ def home():
     introduction()
     work_experience()
     education()
-        #projects()
+    # projects()
     footer_home()
     # elif page == "Work Experience":
     #     work_experience()
@@ -103,42 +104,82 @@ def introduction():
     st.markdown("<hr style='border:2px solid white'>", unsafe_allow_html=True)
     
 
+# def projects():
+#     st.title("Projects")
+#     st.write("Here are some of my projects.")
+#     st.write("---")
+#     # st.header("My Projects")
+#     with st.container():
+#         st.write("##")
+#         text_column, image_column  = st.columns(2)
+#         #text_column, image_column = st.columns((1, 2))
+#         with text_column:
+        
+#             st.subheader("Rossmann Store Sales")
+#             st.write(
+#                 """
+#                 Rossmann operates over 3,000 drug stores in 7 European countries.
+#                 This competition is about predicting 6 weeks of daily sales for 1,115 stores located across Germany. Reliable sales forecasts enable store managers to create effective staff schedules that increase productivity and motivation. 
+#                 """
+#             )
+#             st.markdown("[see the challenge..](https://github.com/SantiagoRomanoOddone/rossmann-store-sales)")
+#         with image_column:
+#             st.image(sales_forcasting.resize((300, 200)))
+#     st.write("---")
+#     with st.container():
+#         #text_column, image_column  = st.columns((1, 2))
+#         text_column, image_column  = st.columns(2)
+#         with text_column:
+#             st.subheader("contact prediction challenge")
+#             st.write(
+#                 """
+#                 Properatti is a prominent real estate portal across various countries. The challenge involved developing a predictive model to determine if property listings published during specific months in 2022 would receive a minimum of three contacts within the first 15 days of publication. 
+#                 """
+#             )
+#             st.markdown("[see the challenge...](https://github.com/SantiagoRomanoOddone/contact-prediction-challenge)")
+#         with image_column:
+#             st.image(properati.resize((300, 200)))
+#     st.markdown("<hr style='border:2px solid white'>", unsafe_allow_html=True)
+
 def projects():
     st.title("Projects")
     st.write("Here are some of my projects.")
     st.write("---")
-    # st.header("My Projects")
-    with st.container():
-        st.write("##")
-        text_column, image_column  = st.columns(2)
-        #text_column, image_column = st.columns((1, 2))
-        with text_column:
-        
-            st.subheader("Rossmann Store Sales")
-            st.write(
-                """
+
+    # Define your projects
+    project_list = [
+        {
+            "title": "Rossmann Store Sales",
+            "description": """
                 Rossmann operates over 3,000 drug stores in 7 European countries.
-                This competition is about predicting 6 weeks of daily sales for 1,115 stores located across Germany. Reliable sales forecasts enable store managers to create effective staff schedules that increase productivity and motivation. 
-                """
-            )
-            st.markdown("[see the challenge..](https://github.com/SantiagoRomanoOddone/rossmann-store-sales)")
-        with image_column:
-            st.image(sales_forcasting.resize((300, 200)))
-    st.write("---")
-    with st.container():
-        #text_column, image_column  = st.columns((1, 2))
-        text_column, image_column  = st.columns(2)
-        with text_column:
-            st.subheader("contact prediction challenge")
-            st.write(
-                """
-                Properatti is a prominent real estate portal across various countries. The challenge involved developing a predictive model to determine if property listings published during specific months in 2022 would receive a minimum of three contacts within the first 15 days of publication. 
-                """
-            )
-            st.markdown("[see the challenge...](https://github.com/SantiagoRomanoOddone/contact-prediction-challenge)")
-        with image_column:
-            st.image(properati.resize((300, 200)))
+                This competition is about predicting 6 weeks of daily sales for 1,115 stores located across Germany. Reliable sales forecasts enable store managers to create effective staff schedules that increase productivity and motivation.
+            """,
+            "image": "images/sales-forcasting.png",
+            "link": "https://github.com/SantiagoRomanoOddone/rossmann-store-sales"
+        },
+        {
+            "title": "Contact Prediction Challenge",
+            "description": """
+                Properatti is a prominent real estate portal across various countries. The challenge involved developing a predictive model to determine if property listings published during specific months in 2022 would receive a minimum of three contacts within the first 15 days of publication.
+            """,
+            "image": "images/properati.png",
+            "link": "https://github.com/SantiagoRomanoOddone/contact-prediction-challenge"
+        },
+        # Add more projects here
+    ]
+
+    # Display projects in a grid layout
+    cols = st.columns(3)  # Create 3 columns for the grid layout
+
+    for i, project in enumerate(project_list):
+        with cols[i % 3]:  # Cycle through columns
+            st.image(project["image"], use_column_width=True)
+            st.subheader(project["title"])
+            st.write(project["description"])
+            st.markdown(f"[See the project]({project['link']})")
+
     st.markdown("<hr style='border:2px solid white'>", unsafe_allow_html=True)
+
     
 def work_experience():
     st.title("Work Experience")
