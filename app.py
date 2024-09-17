@@ -192,7 +192,7 @@ def work_experience():
             - Collaboration with data science teams to analyze monthly results and improve model predictions.
             - Development of supervised and unsupervised machine learning models for client clustering and cluster prediction.
             """)
-            st.write("---")
+            # st.write("---")
             st.subheader("Application Developer")
             st.write("[Accenture Argentina](https://www.accenture.com/ar-es)")
             st.write("02/2022 - 06/2023, Buenos Aires, Argentina")
