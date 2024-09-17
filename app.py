@@ -153,7 +153,9 @@ def work_experience():
             st.write("[Scanntech Uruguay](https://scanntech.com)")
             st.write("02/2024 - Present, Buenos Aires, Argentina")
             st.write("""
-            - Development and implementation of advanced forecasting models in production environments for large corporations, ensuring accurate prediction of product demand across the supply chain while optimizing inventory management to prevent shortages and surplus goods.
+            - Development of advanced forecasting models for large retail enterprises.
+            - Development of stockout prediction models.
+            - Development of a software product for smart inventory replenishment.
             """)
         with image_column:
             st.image(scanntech.resize((300, 300)))
@@ -170,9 +172,9 @@ def work_experience():
             st.write("[Accenture Argentina](https://www.accenture.com/ar-es)")
             st.write("07/2023 - 01/2024, Buenos Aires, Argentina")
             st.write("""
-            - Management of demand and supply prediction models in production environments, including data engineering, model training and optimization, and result analysis.
-            - Effective collaboration with data science teams to analyze monthly results and enhance the predictive capabilities of the models.
-            - Development of supervised and unsupervised Machine Learning models for client clustering and cluster prediction.
+            - Execution of global human resources demand and supply prediction models, including data preprocessing, model training, and result analysis.
+            - Collaboration with data science teams to analyze monthly results and improve model predictions.
+            - Development of supervised and unsupervised machine learning models for client clustering and cluster prediction.
             """)
             st.write("---")
             st.subheader("Application Developer")
