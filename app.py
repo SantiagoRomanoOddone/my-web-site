@@ -226,17 +226,24 @@ def work_experience():
 def education():
     st.title("Education")
     st.write("---")
+
+    # Master in Management + Analytics
     with st.container():
-        text_column, image_column  = st.columns(2)
+        st.write("##")
+        text_column, image_column = st.columns([2, 1])
         with text_column:
             st.subheader("[Master in Management + Analytics](https://www.utdt.edu/listado_contenidos.php?id_item_menu=25098)")
             st.write("[Torcuato Di Tella University](https://www.utdt.edu)")
             st.write("03/2023 - Present, Buenos Aires, Argentina")
         with image_column:
-            st.image(utdt.resize((300, 300)), width=300 )
+            st.image(utdt.resize((300, 300)), width=300)
+
     st.write("---")
+
+    # National Technological University
     with st.container():
-        text_column, image_column  = st.columns(2)
+        st.write("##")
+        text_column, image_column = st.columns([2, 1])
         with text_column:
             st.subheader("Industrial Engineering")
             st.write("[National Technological University](https://www.frc.utn.edu.ar)")
@@ -244,7 +251,9 @@ def education():
             st.write("GPA: 8.35/10")
         with image_column:
             st.image(utn.resize((300, 300)), width=300)
+
     st.markdown("<hr style='border:2px solid white'>", unsafe_allow_html=True)
+
 
 def footer_home():
     # Add a footer
