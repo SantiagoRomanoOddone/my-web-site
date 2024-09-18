@@ -1,4 +1,12 @@
-/* CSS Snippet from W3schools: https://www.w3schools.com/howto/howto_css_contact_form.asp */
+/* Style the form container */
+form {
+  background-color: #f9f9f9; /* Slightly darker grey background */
+  padding: 20px; /* Some padding */
+  border-radius: 8px; /* Rounded borders */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  margin-bottom: 20px; /* Add some space below the form */
+}
+
 /* Style inputs with type="text", select elements and textareas */
 input[type=message], input[type=email], input[type=text], textarea {
   width: 100%; /* Full width */
@@ -8,7 +16,16 @@ input[type=message], input[type=email], input[type=text], textarea {
   box-sizing: border-box; /* Make sure that padding and width stays in place */
   margin-top: 6px; /* Add a top margin */
   margin-bottom: 16px; /* Bottom margin */
-  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+  resize: vertical; /* Allow the user to vertically resize the textarea (not horizontally) */
+  transition: border-color 0.3s, background-color 0.3s; /* Smooth transition for border and background color */
+  background-color: #fff; /* White background */
+}
+
+/* Style the input focus state */
+input[type=message]:focus, input[type=email]:focus, input[type=text]:focus, textarea:focus {
+  border-color: #04AA6D; /* Green border on focus */
+  outline: none; /* Remove default outline */
+  background-color: #e6f7f1; /* Light green background on focus */
 }
 
 /* Style the submit button with a specific background color etc */
@@ -19,15 +36,56 @@ button[type=submit] {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s; /* Smooth transition for background color and transform */
 }
 
 /* When moving the mouse over the submit button, add a darker green color */
 button[type=submit]:hover {
   background-color: #45a049;
+  transform: scale(1.05); /* Slightly enlarge the button on hover */
 }
-
 
 /* Hide Streamlit Branding */
 #MainMenu {visibility: hidden;}
 footer {visibility: hidden;}
 header {visibility: hidden;}
+
+/* Add a gradient background to the body */
+body {
+  background: linear-gradient(to right, #e0f7fa, #e0f2f1); /* Light blue to light green gradient */
+  font-family: 'Arial', sans-serif; /* Use a clean, modern font */
+}
+
+/* Center the form and footer content */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Style the footer */
+footer {
+  background-color: #f2f2f2; /* Light grey background */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-top: 20px;
+}
+
+footer p {
+  margin: 0;
+  padding: 5px;
+}
+
+footer a {
+  color: #04AA6D;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}

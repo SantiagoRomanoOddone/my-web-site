@@ -1,5 +1,4 @@
 import streamlit as st
-from streamlit_lottie import st_lottie
 from PIL import Image
 import requests
 import base64
@@ -46,7 +45,7 @@ def home():
     work_experience()
     education()
     # projects()
-    footer_home()
+    footer()
     # elif page == "Work Experience":
     #     work_experience()
     #     footer()
@@ -58,12 +57,10 @@ def home():
     #     footer()
 
 def introduction():
-    st.header("Welcome to my homepage!")
-    st.markdown("<hr style='border:2px solid white'>", unsafe_allow_html=True)
     with st.container():
         st.title("Hi, I am Santiago Romano Oddone :wave:")
         st.markdown("""
-                Machine Learning Engineer and Data Scientist specializing in the development of data science and artificial intelligence solutions for industry and business.
+                Machine Learning Engineer / Data Scientist specializing in the development of data science and artificial intelligence solutions for industry and business.
                 """)
     with st.container():
         st.markdown(
@@ -254,39 +251,6 @@ def education():
 
     st.markdown("<hr style='border:2px solid white'>", unsafe_allow_html=True)
 
-
-def footer_home():
-    # Add a footer
-    left_column, right_column = st.columns(2)
-    with left_column:
-        st.markdown("Made with Streamlit by Santiago Romano Oddone")
-        st.markdown("[LinkedIn](https://linkedin.com/in/santiagoromanooddone) | [GitHub](https://github.com/SantiagoRomanoOddone)")
-        st.empty()
-    with right_column:
-        st_lottie(lottie_coding, height=300, key="coding")
-
-    # # ---- CONTACT ----
-
-    st.write("---")
-    st.header("Get In Touch With Me!")
-    st.write("##")
-
-        # Documention: https://formsubmit.co/ !
-    contact_form = """
-        <form action="https://formsubmit.co/santiagoromano15@gmail.com" method="POST">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="text" name="name" placeholder="Your name" required>
-            <input type="email" name="email" placeholder="Your email" required>
-            <textarea name="message" placeholder="Your message here" required></textarea>
-            <button type="submit">Send</button>
-        </form>
-        """
-    left_column, right_column = st.columns(2)
-    with left_column:
-        st.markdown(contact_form, unsafe_allow_html=True)
-    with right_column:
-        st.empty()
-
 def footer():
     # Add a footer
     # # ---- CONTACT ----
@@ -308,7 +272,15 @@ def footer():
     with left_column:
         st.markdown(contact_form, unsafe_allow_html=True)
     with right_column:
-        st.empty()
+        st.markdown("""
+            <div style="text-align: center;">
+                <p>Made with Streamlit by Santiago Romano Oddone</p>
+                <p>
+                    <a href="https://linkedin.com/in/santiagoromanooddone" target="_blank">LinkedIn</a> |
+                    <a href="https://github.com/SantiagoRomanoOddone" target="_blank">GitHub</a>
+                </p>
+            </div>
+        """, unsafe_allow_html=True)
 
 # Add a navigation bar
 
