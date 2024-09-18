@@ -2,6 +2,7 @@ import streamlit as st
 from PIL import Image
 import requests
 import base64
+from scr.info import * 
 
 st.set_page_config(page_title="Main Page", page_icon="🏠", layout="wide",initial_sidebar_state="collapsed") 
 margin_r,body,margin_l = st.columns([0.4, 3, 0.4])
@@ -59,9 +60,7 @@ def home():
 def introduction():
     with st.container():
         st.title("Hi, I am Santiago Romano Oddone :wave:")
-        st.markdown("""
-                Machine Learning Engineer / Data Scientist specializing in the development of data science and artificial intelligence solutions for industry and business.
-                """)
+        st.markdown(info['about_me'])
     with st.container():
         st.markdown(
                     f'<img src="data:image/png;base64,{image_base64}" style="width:300px;margin:auto;display:block;">',
@@ -71,40 +70,22 @@ def introduction():
         left_column, middle_column ,right_column= st.columns([4,3,2])  # Adjust column widths
 
         with left_column:
-            st.markdown("<h2 style='text-align: left'>Contact</h2>", unsafe_allow_html=True)
-            st.markdown("""
-            <div style="text-align: left"> 
-                        
-            - Email: santiagoromano15@gmail.com
-            - Phone: +5493884840234
-            - Location: Buenos Aires, Argentina
-                        
-            </div>
-            """, unsafe_allow_html=True)
+            st.markdown(info['contact']['style'], unsafe_allow_html=True)
+            st.markdown(info['contact']['data'], unsafe_allow_html=True)
         with right_column:
             #st.subheader("Profiles")  # Use subheader
-            st.markdown("<h2 style='text-align: left'>Profiles</h2>", unsafe_allow_html=True)
-            st.markdown("""
-            <div style="text-align: left"> 
-
-            - [LinkedIn](https://linkedin.com/in/santiagoromanooddone)
-            - [GitHub](https://github.com/SantiagoRomanoOddone)
-
-            </div>
-            """, unsafe_allow_html=True)
+            st.markdown(info['profiles']['style'], unsafe_allow_html=True)
+            st.markdown(info['profiles']['data'], unsafe_allow_html=True)
 
     # st.markdown("<hr style='border:2px solid white'>", unsafe_allow_html=True)
     
 
 
 def skill_tab():
-    st.subheader(":blue[My Core Tools & Technologies] ⚒️",divider='rainbow') #,divider='rainbow'
+    st.subheader(info['skills']['title'],divider='rainbow') #,divider='rainbow'
     skill_col_size = 5
-    info = {
-            'skills':['Python','R','PySpark','.NET Core','SQL','AWS','Github','Gitlab','Pytorch','Scikit-Learn'],
-            }
-    rows,cols = len(info['skills'])//skill_col_size, skill_col_size
-    skills = iter(info['skills'])
+    rows,cols = len(info['skills']['data'])//skill_col_size, skill_col_size
+    skills = iter(info['skills']['data'])
     if len(info['skills'])%skill_col_size!=0:
         rows+=1
     for x in range(rows):
@@ -121,32 +102,10 @@ def projects():
     st.write("Here are some of my projects.")
     st.write("---")
 
-    # Define your projects
-    project_list = [
-        {
-            "title": "Rossmann Store Sales",
-            "description": """
-                Rossmann operates over 3,000 drug stores in 7 European countries.
-                This competition is about predicting 6 weeks of daily sales for 1,115 stores located across Germany. Reliable sales forecasts enable store managers to create effective staff schedules that increase productivity and motivation.
-            """,
-            "image": "images/sales-forcasting.png",
-            "link": "https://github.com/SantiagoRomanoOddone/rossmann-store-sales"
-        },
-        {
-            "title": "Contact Prediction Challenge",
-            "description": """
-                Properatti is a prominent real estate portal across various countries. The challenge involved developing a predictive model to determine if property listings published during specific months in 2022 would receive a minimum of three contacts within the first 15 days of publication.
-            """,
-            "image": "images/properati.png",
-            "link": "https://github.com/SantiagoRomanoOddone/contact-prediction-challenge"
-        },
-        # Add more projects here
-    ]
-
     # Display projects in a grid layout
     cols = st.columns(3)  # Create 3 columns for the grid layout
 
-    for i, project in enumerate(project_list):
+    for i, project in enumerate(info['projects']):
         with cols[i % 3]:  # Cycle through columns
             st.image(project["image"], use_column_width=True)
             st.subheader(project["title"])
@@ -154,6 +113,8 @@ def projects():
             st.markdown(f"[See the project]({project['link']})")
 
     st.markdown("<hr style='border:2px solid white'>", unsafe_allow_html=True)
+
+
 def work_experience():
     st.title("Work Experience")
     st.write("---")
@@ -163,14 +124,10 @@ def work_experience():
         st.write("##")
         text_column, image_column = st.columns([2, 1])
         with text_column:
-            st.subheader("Data Scientist")
-            st.write("[Scanntech Uruguay](https://scanntech.com)")
-            st.write("02/2024 - Present, Buenos Aires, Argentina")
-            st.write("""
-            - Development of advanced forecasting models for large retail enterprises.
-            - Development of stockout prediction models.
-            - Development of a software product for smart inventory replenishment.
-            """)
+            st.subheader(info['work_experience']['scanntech']['title'])
+            st.write(info['work_experience']['scanntech']['company'])
+            st.write(info['work_experience']['scanntech']['duration'])
+            st.write(info['work_experience']['scanntech']['description'])
         with image_column:
             st.image(scanntech.resize((300, 300)))
 
@@ -181,42 +138,16 @@ def work_experience():
         st.write("##")
         text_column, image_column = st.columns([2, 1])
         with text_column:
-            st.subheader("Machine Learning Engineer")
-            st.write("[Accenture Argentina](https://www.accenture.com/ar-es)")
-            st.write("07/2023 - 01/2024, Buenos Aires, Argentina")
-            st.write("""
-            - Execution of global human resources demand and supply prediction models, including data preprocessing, model training, and result analysis.
-            - Collaboration with data science teams to analyze monthly results and improve model predictions.
-            - Development of supervised and unsupervised machine learning models for client clustering and cluster prediction.
-            """)
-            # st.write("---")
-            st.subheader("Application Developer")
-            st.write("[Accenture Argentina](https://www.accenture.com/ar-es)")
-            st.write("02/2022 - 06/2023, Buenos Aires, Argentina")
-            st.write("""
-            - Development of ETL solutions for importing/exporting, loading, and processing data.
-            - Development of .NET CORE applications.
-            """)
+            st.subheader(info['work_experience']['accenture']['title_ml'])
+            st.write(info['work_experience']['accenture']['company_ml'])
+            st.write(info['work_experience']['accenture']['duration_ml'])
+            st.write(info['work_experience']['accenture']['description_ml'])
+            st.subheader(info['work_experience']['accenture']['title_app'])
+            st.write(info['work_experience']['accenture']['company_app'])
+            st.write(info['work_experience']['accenture']['duration_app'])
+            st.write(info['work_experience']['accenture']['description_app'])
         with image_column:
             st.image(accenture.resize((300, 200)))
-
-    st.write("---")
-
-    # MuniraFoods
-    with st.container():
-        st.write("##")
-        text_column, image_column = st.columns([2, 1])
-        with text_column:
-            st.subheader("Business Analyst")
-            st.write("[MuniraFoods](https://munirafoods.com)")
-            st.write("03/2021 - 09/2021, Córdoba, Argentina")
-            st.write("""
-            - Development of Key Performance Indicators (KPIs) for each product line to monitor and analyze operational processes.
-            - Identification and monitoring of operational and compliance risks.
-            - Application of continuous improvement techniques to enhance production and logistics processes.
-            """)
-        with image_column:
-            st.image(munira.resize((300, 200)))
 
     st.markdown("<hr style='border:2px solid white'>", unsafe_allow_html=True)
 
@@ -229,9 +160,9 @@ def education():
         st.write("##")
         text_column, image_column = st.columns([2, 1])
         with text_column:
-            st.subheader("[Master in Management + Analytics](https://www.utdt.edu/listado_contenidos.php?id_item_menu=25098)")
-            st.write("[Torcuato Di Tella University](https://www.utdt.edu)")
-            st.write("03/2023 - Present, Buenos Aires, Argentina")
+            st.subheader(info['education']['master']['title'])
+            st.write(info['education']['master']['institution'])
+            st.write(info['education']['master']['duration'])
         with image_column:
             st.image(utdt.resize((300, 300)), width=300)
 
@@ -242,12 +173,13 @@ def education():
         st.write("##")
         text_column, image_column = st.columns([2, 1])
         with text_column:
-            st.subheader("Industrial Engineering")
-            st.write("[National Technological University](https://www.frc.utn.edu.ar)")
-            st.write("03/2015 - 12/2020, Córdoba, Argentina")
-            st.write("GPA: 8.35/10")
+            st.subheader(info['education']['bachelor']['title'])
+            st.write(info['education']['bachelor']['institution'])
+            st.write(info['education']['bachelor']['duration'])
+            st.write(info['education']['bachelor']['gpa'])
         with image_column:
             st.image(utn.resize((300, 300)), width=300)
+
 
     st.markdown("<hr style='border:2px solid white'>", unsafe_allow_html=True)
 
@@ -285,16 +217,18 @@ def footer():
 # Add a navigation bar
 
 
-def navegation_bar():
-    st.sidebar.title("Navigation")
-    page = st.sidebar.radio("Go to", ["Home",  "Work Experience", "Education"])
-    # Use a dictionary to map page names to functions
-    pages = {
-        "Home": introduction,
-        "Work Experience": work_experience,
-        "Education": education
-        #"Projects": projects
-    }
+def footer():
+    # Add a footer
+    st.header(info['footer']['header'])
+    st.write("##")
+
+    # Contact form
+    contact_form = info['footer']['contact_form']
+    left_column, right_column = st.columns(2)
+    with left_column:
+        st.markdown(contact_form, unsafe_allow_html=True)
+    with right_column:
+        st.markdown(info['footer']['credits'], unsafe_allow_html=True)
 
     # Call the appropriate function based on the user's selection
     #pages[page]()
