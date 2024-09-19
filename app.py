@@ -183,39 +183,6 @@ def education():
 
     st.markdown("<hr style='border:2px solid white'>", unsafe_allow_html=True)
 
-def footer():
-    # Add a footer
-    # # ---- CONTACT ----
-
-    st.header("Get In Touch With Me!")
-    st.write("##")
-
-        # Documention: https://formsubmit.co/ !
-    contact_form = """
-        <form action="https://formsubmit.co/santiagoromano15@gmail.com" method="POST">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="text" name="name" placeholder="Your name" required>
-            <input type="email" name="email" placeholder="Your email" required>
-            <textarea name="message" placeholder="Your message here" required></textarea>
-            <button type="submit">Send</button>
-        </form>
-        """
-    left_column, right_column = st.columns(2)
-    with left_column:
-        st.markdown(contact_form, unsafe_allow_html=True)
-    with right_column:
-        st.markdown("""
-            <div style="text-align: center;">
-                <p>Made with Streamlit by Santiago Romano Oddone</p>
-                <p>
-                    <a href="https://linkedin.com/in/santiagoromanooddone" target="_blank">LinkedIn</a> |
-                    <a href="https://github.com/SantiagoRomanoOddone" target="_blank">GitHub</a>
-                </p>
-            </div>
-        """, unsafe_allow_html=True)
-
-# Add a navigation bar
-
 
 def footer():
     # Add a footer
