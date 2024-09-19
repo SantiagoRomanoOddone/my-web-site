@@ -76,7 +76,7 @@ def introduction():
             #st.subheader("Profiles")  # Use subheader
             st.markdown(info['profiles']['style'], unsafe_allow_html=True)
             st.markdown(info['profiles']['data'], unsafe_allow_html=True)
-
+    st.header("")
     # st.markdown("<hr style='border:2px solid white'>", unsafe_allow_html=True)
     
 
