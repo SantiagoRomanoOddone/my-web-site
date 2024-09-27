@@ -4,7 +4,7 @@ import requests
 import base64
 from scr.info import * 
 
-st.set_page_config(page_title="Main Page", page_icon="🏠", layout="wide",initial_sidebar_state="collapsed") 
+st.set_page_config(page_title="Main Page", layout="wide",initial_sidebar_state="collapsed") 
 margin_r,body,margin_l = st.columns([0.4, 3, 0.4])
 
 def load_lottieurl(url):
